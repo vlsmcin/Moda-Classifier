@@ -9,3 +9,7 @@ Tecnologias utilizadas:
 
 Dependências:
 - npm install
+
+Para executar:
+- node scraper.js
+- python3 -m http.server (Executa um servidor http simples apenas para mostrar)

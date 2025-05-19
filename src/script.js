@@ -1,6 +1,7 @@
 const URL = "../model/";
 
 let model, webcam, labelContainer, maxPredictions;
+let category;
 let img = null
 // window.onload = init
 
@@ -21,7 +22,6 @@ async function init() {
     // webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
     // await webcam.setup(); // request access to the webcam
     // await webcam.play();
-    window.requestAnimationFrame(predict);
 
     // append elements to the DOM
     //document.getElementById("webcam-container").appendChild(webcam.canvas);
@@ -30,7 +30,8 @@ async function init() {
         labelContainer.appendChild(document.createElement("div"));
     }
 
-    await searchImages("blusa");
+    await predict();
+    await searchImages();
 }
 
 async function loop() {
@@ -81,12 +82,14 @@ async function predict() {
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
+
+        const sorted = prediction.sort((a, b) => b.probability - a.probability);
+        category = sorted[0];
     }
 }
 
-async function searchImages(query) {
-
-    const url = `http://localhost:3000/scrape?query=${encodeURIComponent(query)}`;
+async function searchImages() {
+    const url = `http://localhost:3000/scrape?query=${encodeURIComponent(category["className"])}`;
 
     const res = await fetch(url);
     const products = await res.json();
