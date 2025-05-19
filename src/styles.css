@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+header {
+    padding: 2rem;
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+}
+button, input[type="file"]::file-selector-button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.recommendations {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 120px;
+    background: #fff;
+}
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}

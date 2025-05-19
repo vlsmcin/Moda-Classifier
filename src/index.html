@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleMatch</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>StyleMatch</h1>
+  </header>
+
+  <section class="card">
+    <h2>Upload da sua peça favorita</h2>
+    <input type="file" accept="image/*" id="clotheimage" onchange="loadImage()">
+    <canvas id="meuCanvas"></canvas>
+    <br><br>
+    <button onclick="init()">Enviar</button>
+    <p style="font-size: 0.9rem; color: #666;">Dica: envie uma foto de camisa, calça, sapato, etc.</p>
+  </section>
+
+  <section class="card">
+    <h2>Recomendações de Roupas Complementares</h2>
+    <div class="recommendations">
+      <div class="item">
+        <p>🎗️ Vestido Floral</p>
+        <button>Ver mais</button>
+      </div>
+      <div class="item">
+        <p>👠 Scarpin Bege</p>
+        <button>Ver mais</button>
+      </div>
+      <div class="item">
+        <p>💼 Mochila</p>
+        <button>Ver mais</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button>Compartilhar</button>
+      <button>Salvar Look</button>
+    </div>
+  </section>
+
+  <div id="webcam-container">
+    <div id="label-container"></div>
+  </div>
+
+  <footer>
+    <p>© 2025 StyleMatch | Política de Privacidade</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
