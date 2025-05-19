@@ -85,7 +85,6 @@ async function predict() {
 }
 
 async function searchImages(query) {
-    console.log("chegou");
 
     const url = `http://localhost:3000/scrape?query=${encodeURIComponent(query)}`;
 
@@ -105,6 +104,4 @@ async function searchImages(query) {
         `;
         container.appendChild(card);
     })
-
-    console.log(products);
 }
