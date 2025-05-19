@@ -54,3 +54,19 @@ footer {
     font-size: 0.9rem;
     color: #666;
 }
+#products {
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #products .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+  }
+  

@@ -29,6 +29,8 @@ async function init() {
     for (let i = 0; i < maxPredictions; i++) { // and class labels
         labelContainer.appendChild(document.createElement("div"));
     }
+
+    await searchImages("blusa");
 }
 
 async function loop() {
@@ -82,6 +84,27 @@ async function predict() {
     }
 }
 
-async function searchImages() {
-    
+async function searchImages(query) {
+    console.log("chegou");
+
+    const url = `http://localhost:3000/scrape?query=${encodeURIComponent(query)}`;
+
+    const res = await fetch(url);
+    const products = await res.json();
+
+    const container = document.getElementById('products')
+    container.innerHTML = '';
+    products.forEach(prod => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${prod.image}" width="150"><br>
+          <strong>${prod.name}</strong><br>
+          ${prod.price}<br>
+          <a href="${prod.link}" target="_blank">Ver produto</a>
+        `;
+        container.appendChild(card);
+    })
+
+    console.log(products);
 }
