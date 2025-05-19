@@ -89,7 +89,45 @@ async function predict() {
 }
 
 async function searchImages() {
-    const url = `http://localhost:3000/scrape?query=${encodeURIComponent(category["className"])}`;
+    let recomendation;
+
+    if (category["className"].includes("Camisa lisa")) {
+        recomendation = "calca preta";
+    }
+    else if (category["className"].includes("Camisa estampada") || category["className"] == "Camisa preta estampada") {
+        recomendation = "bermuda branca";
+    }
+    else if (category["className"].includes("Camisa florida")) {
+        recomendation = "calca bege";
+    }
+    else if (category["className"].includes("Camisa polo")) {
+        recomendation = "calca jeans preta";
+    }
+    else if (category["className"].includes("Camisa regata")) {
+        recomendation = "short preto";
+    }
+    else if (category["className"].includes("Short florido")) {
+        recomendation = "camisa lisa preta";
+    }
+    else if (category["className"].includes("Calça")) {
+        recomendation = "camisa vermelha";
+    }
+    else if (category["className"].includes("Short liso")) {
+        recomendation = "camisa de botao";
+    }
+    else if (category["className"].includes("Short")) {
+        recomendation = "camisa lisa";
+    }
+    else if (category["className"].includes("Bermuda")) {
+        recomendation = "camisa cor clara";
+    }
+    else {
+        recomendation = "camisa preta";
+    }
+
+    recomendation += " masculino";
+
+    const url = `http://localhost:3000/scrape?query=${encodeURIComponent(recomendation)}`;
 
     const res = await fetch(url);
     const products = await res.json();
